@@ -3,6 +3,13 @@ import { RxAvatar } from "react-icons/rx";
 import "./Sidebar.css";
 
 function Sidebar() {
+  const recentItem = (topic) => (
+    <div className="sidebar_recentItem">
+      <span className="sidebar_hash">#</span>
+      <p>{topic}</p>
+    </div>
+  );
+
   return (
     <div className="sidebar">
       <div className="sidebar_top">
@@ -26,7 +33,11 @@ function Sidebar() {
       </div>
 
       <div className="sidebar_bottom">
-        <p>recent</p>
+        <p>Recent</p>
+        {recentItem("react JS")}
+        {recentItem("linkedin clone")}
+        {recentItem("redux")}
+        {recentItem("firebase")}
       </div>
     </div>
   );
