@@ -16,7 +16,7 @@ function Header() {
         <img src="image.png" alt="" />
         <div className="header_search">
           <IoSearchSharp />
-          <input type="text" />
+          <input type="text" placeholder="search" />
         </div>
       </div>
 

@@ -4,8 +4,8 @@ import "./Post.css";
 import InputOption from "./InputOption";
 import { BiLike } from "react-icons/bi";
 import { TfiCommentAlt } from "react-icons/tfi";
-import { FaShareAlt } from "react-icons/fa";
-import { IoSend } from "react-icons/io5";
+import { FiShare2 } from "react-icons/fi";
+import { IoSendOutline } from "react-icons/io5";
 
 function Post({ name, description, message, photoUrl }) {
   return (
@@ -24,8 +24,8 @@ function Post({ name, description, message, photoUrl }) {
       <div className="post_button">
         <InputOption Icon={BiLike} title="like" color="gray" />
         <InputOption Icon={TfiCommentAlt} title="comment" color="gray" />
-        <InputOption Icon={FaShareAlt} title="share" color="gray" />
-        <InputOption Icon={IoSend} title="send" color="gray" />
+        <InputOption Icon={FiShare2} title="share" color="gray" />
+        <InputOption Icon={IoSendOutline} title="send" color="gray" />
       </div>
     </div>
   );

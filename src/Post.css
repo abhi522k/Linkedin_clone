@@ -29,4 +29,9 @@
 
 .post_button {
   display: flex;
+  justify-content: space-evenly;
+}
+
+.post_button:hover {
+  color: black;
 }
