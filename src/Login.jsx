@@ -1,17 +1,69 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { useDispatch } from "react-redux";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { login } from "./features/userSlice";
+import { auth } from "./firebase";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [profilePic, setProfilePic] = useState("");
+  const dispatch = useDispatch();
 
   const loginToApp = (e) => {
     e.preventDefault();
+    const auth = getAuth(); // Initialize Firebase Auth
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        dispatch(
+          login({
+            email: user.email,
+            uid: user.uid,
+            displayName: user.displayName,
+            profileUrl: user.photoURL,
+          })
+        );
+      })
+      .catch((error) => alert(error.message));
   };
 
-  const register = () => {};
+  const register = () => {
+    if (!name) {
+      return alert("Please enter a full name!");
+    }
+
+    const auth = getAuth(); // Initialize Firebase Auth
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        updateProfile(user, {
+          displayName: name,
+          photoURL: profilePic,
+        })
+          .then(() => {
+            dispatch(
+              login({
+                email: user.email,
+                uid: user.uid,
+                displayName: name,
+                photoUrl: profilePic,
+              })
+            );
+          })
+          .catch((error) => alert(error));
+      })
+      .catch((error) => alert(error));
+  };
 
   return (
     <div className="login">
@@ -30,7 +82,7 @@ function Login() {
         <input
           type="text"
           value={profilePic}
-          onChange={setProfilePic}
+          onChange={(e) => setProfilePic(e.target.value)}
           placeholder="Profile pic URL (Optional)"
         />
         <input

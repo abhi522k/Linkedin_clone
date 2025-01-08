@@ -8,8 +8,18 @@ import { MdMessage } from "react-icons/md";
 import { FaBell } from "react-icons/fa";
 import { RxAvatar } from "react-icons/rx";
 import HeaderOption from "./HeaderOption";
+import { useDispatch } from "react-redux";
+import { logout } from "./features/userSlice";
+import { auth } from "./firebase";
 
 function Header() {
+  const dispatch = useDispatch();
+
+  const logoutOfApp = () => {
+    dispatch(logout());
+    auth.signOut();
+  };
+
   return (
     <div class="header">
       <div className="header_left">
@@ -26,7 +36,7 @@ function Header() {
         <HeaderOption Icon={FaBriefcase} title="Jobs" />
         <HeaderOption Icon={MdMessage} title="Messaging" />
         <HeaderOption Icon={FaBell} title="Notifications" />
-        <HeaderOption Icon={RxAvatar} title="Me" />
+        <HeaderOption Icon={RxAvatar} title="Me" onClick={logoutOfApp} />
       </div>
     </div>
   );

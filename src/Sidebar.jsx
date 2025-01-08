@@ -1,8 +1,12 @@
 import React from "react";
 import { RxAvatar } from "react-icons/rx";
 import "./Sidebar.css";
+import { useSelector } from "react-redux";
+import { selectUser } from "./features/userSlice";
 
 function Sidebar() {
+  const user = useSelector(selectUser);
+
   const recentItem = (topic) => (
     <div className="sidebar_recentItem">
       <span className="sidebar_hash">#</span>
@@ -17,9 +21,11 @@ function Sidebar() {
           src="https://media.istockphoto.com/id/1871613474/photo/gold-and-blue-fireworks-and-bokeh-in-new-year-eve-and-copy-space-abstract-background-holiday.webp?a=1&b=1&s=612x612&w=0&k=20&c=sdu7Zf46w9by5oydhRJ02gBozo18HiIfrP8VeGarsTs="
           alt=""
         />
-        <RxAvatar className="sidebar_avatar" />
-        <h2>Abhishek Surse</h2>
-        <h4>abhisheksurse5@gmail.com</h4>
+        <RxAvatar src={user.photoUrl} className="sidebar_avatar">
+          {user.email[0]}
+        </RxAvatar>
+        <h2>{user.displayName}</h2>
+        <h4>{user.email}</h4>
       </div>
       <div className="sidebar_stats">
         <div className="sidebar_stat">
