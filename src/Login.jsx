@@ -29,7 +29,7 @@ function Login() {
             email: user.email,
             uid: user.uid,
             displayName: user.displayName,
-            profileUrl: user.photoURL,
+            photoUrl: user.photoURL,
           })
         );
       })

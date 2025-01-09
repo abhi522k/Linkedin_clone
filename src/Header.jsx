@@ -36,7 +36,7 @@ function Header() {
         <HeaderOption Icon={FaBriefcase} title="Jobs" />
         <HeaderOption Icon={MdMessage} title="Messaging" />
         <HeaderOption Icon={FaBell} title="Notifications" />
-        <HeaderOption Icon={RxAvatar} title="Me" onClick={logoutOfApp} />
+        <HeaderOption AvatarPic={RxAvatar} title="Me" onClick={logoutOfApp} />
       </div>
     </div>
   );

@@ -18,12 +18,21 @@ function Sidebar() {
     <div className="sidebar">
       <div className="sidebar_top">
         <img
+          className="sidebar_top_image"
           src="https://media.istockphoto.com/id/1871613474/photo/gold-and-blue-fireworks-and-bokeh-in-new-year-eve-and-copy-space-abstract-background-holiday.webp?a=1&b=1&s=612x612&w=0&k=20&c=sdu7Zf46w9by5oydhRJ02gBozo18HiIfrP8VeGarsTs="
           alt=""
         />
-        <RxAvatar src={user.photoUrl} className="sidebar_avatar">
-          {user.email[0]}
-        </RxAvatar>
+        {user.photoUrl ? (
+          <img
+            className="sidebar_avatar_icon"
+            src={user.photoUrl}
+            alt="User Avatar"
+          />
+        ) : (
+          <span className="sidebar_avatar_text">
+            {user.email[0].toUpperCase()}
+          </span>
+        )}
         <h2>{user.displayName}</h2>
         <h4>{user.email}</h4>
       </div>

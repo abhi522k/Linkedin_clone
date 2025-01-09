@@ -12,6 +12,24 @@
   font-weight: 400;
 }
 
+.headerOption_avatar_img {
+  object-fit: cover;
+  border-radius: 50px;
+  margin-top: -3px;
+  width: 30px;
+  height: 30px;
+}
+
+.headerOption_avatar_text {
+  background-color: grey;
+  font-size: larger;
+  color: white;
+  border-radius: 50px;
+  height: 26px;
+  width: 26px;
+  text-align: center;
+}
+
 .headerOption_icon {
   object-fit: contain;
   height: 25px;
