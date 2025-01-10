@@ -15,8 +15,12 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "./firebase";
+import { useSelector } from "react-redux";
+import { selectUser } from "./features/userSlice";
+import { motion } from "framer-motion";
 
 function Feed() {
+  const user = useSelector(selectUser);
   const [input, setInput] = useState("");
   const [posts, setPosts] = useState([]);
   const postsRef = collection(db, "posts");
@@ -43,10 +47,10 @@ function Feed() {
 
     try {
       await addDoc(postsRef, {
-        name: "Abhishek Surse",
-        description: "This is a test.",
+        name: user.displayName,
+        description: user.email,
         message: input,
-        photoUrl: "",
+        photoUrl: user.photoUrl || "",
         timestamp: serverTimestamp(),
       });
       setInput("");
@@ -83,15 +87,26 @@ function Feed() {
           <InputOption Icon={GrArticle} title="Write article" color="#7FC15E" />
         </div>
       </div>
-      {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
-        <Post
-          key={id}
-          name={name}
-          description={description}
-          message={message}
-          photoUrl={photoUrl}
-        />
-      ))}
+      {/* Posts */}
+      <motion.div layout>
+        {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+          <motion.div
+            key={id}
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <Post
+              key={id}
+              name={name}
+              description={description}
+              message={message}
+              photoUrl={photoUrl}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   );
 }

@@ -35,3 +35,22 @@
 .post_button:hover {
   color: black;
 }
+
+.post_avatar_img {
+  object-fit: cover;
+  border-radius: 50px;
+  width: 45px;
+  height: 45px;
+}
+
+.post_avatar_text {
+  background-color: grey;
+  font-size: 30px;
+  color: white;
+  border-radius: 50px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  vertical-align: middle;
+}

@@ -11,10 +11,16 @@ function Post({ name, description, message, photoUrl }) {
   return (
     <div className="post">
       <div className="post_header">
-        <RxAvatar className="sidebar_avatar" />
+        {photoUrl ? (
+          <img className="post_avatar_img" src={photoUrl} alt="User Avatar" />
+        ) : (
+          <span className="post_avatar_text">
+            {description[0].toUpperCase()}
+          </span>
+        )}
         <div className="post_info">
-          <h2>Abhishek Surse</h2>
-          <p>Description</p>
+          <h2>{name}</h2>
+          <p>{description}</p>
         </div>
       </div>
 

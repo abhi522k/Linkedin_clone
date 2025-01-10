@@ -1,5 +1,7 @@
 # LinkedIn Clone
 
+## **Project URL**: [LinkedIn Clone](https://linkedin-clone-69385.web.app)
+
 LinkedIn Clone is a web application built using **React**, **Redux**, and **Firebase** to replicate some of the core features of the LinkedIn platform. This project was developed as part of a learning journey to enhance my skills in front-end development, state management, and backend integration.
 
 ## Key Features
