@@ -54,19 +54,13 @@ This journey reflects a step-by-step approach to building a real-world applicati
    cd linkedin-clone
    ```
 
-3. Navigate to the project directory:
-
-   ```bash
-   cd linkedin-clone
-   ```
-
-4. Install dependencies:
+3. Install dependencies:
 
    ```bash
    npm install
    ```
 
-5. Start the development server:
+4. Start the development server:
    ```bash
    npm start
    ```
